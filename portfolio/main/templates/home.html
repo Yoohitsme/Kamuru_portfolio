@@ -1,0 +1,47 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kamuru Portfolio</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contacts/">Contacts</a>
+</nav>
+
+<div class="hero">
+    <h1>Hi, I'm Kamuru 👋</h1>
+    <p>Graphic Designer | Data Scientist | Developer</p>
+</div>
+
+<h2 class="section-title">My Work 🎨</h2>
+
+<div class="projects">
+    {% for project in projects %}
+        <div class="project-card">
+            
+            <a href="/project/{{ project.id }}/">
+                {% if project.image %}
+                    <img alt="{{ project.title }}" src="{{ project.image.url }}">
+                {% endif %}
+                <h3>{{ project.title }}</h3>
+            </a>
+
+            <p>{{ project.description }}</p>
+
+            {% if project.link %}
+                <a href="{{ project.link }}" target="_blank">
+                    View Project 🔗
+                </a>
+            {% endif %}
+
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

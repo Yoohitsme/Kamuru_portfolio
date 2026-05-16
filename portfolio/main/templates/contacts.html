@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a>
+</nav>
+
+<div class="hero">
+    <h1>Contact Me 📩</h1>
+</div>
+
+<form method="POST" class="contact-form">
+    {% csrf_token %}
+    
+    <input type="text" name="name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Your Email" required><br><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br><br>
+
+    <button type="submit">Send Message 🚀</button>
+</form>
+
+</body>
+</html>
